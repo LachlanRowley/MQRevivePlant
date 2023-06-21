@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dga5esxsgnrym"]
+
+[ext_resource type="PackedScene" uid="uid://cv1f1mo35so4" path="res://Scenes/Interactable.tscn" id="1_ddh3e"]
+[ext_resource type="Script" path="res://Button.gd" id="2_s0e0y"]
+
+[node name="Button" instance=ExtResource("1_ddh3e")]
+script = ExtResource("2_s0e0y")
+
+[node name="Sprite2D" parent="." index="1"]
+modulate = Color(0, 1, 1, 1)

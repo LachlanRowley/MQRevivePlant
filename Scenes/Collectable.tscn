@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dta82gpolfild"]
+
+[ext_resource type="PackedScene" uid="uid://cv1f1mo35so4" path="res://Scenes/Interactable.tscn" id="1_u6jah"]
+[ext_resource type="Script" path="res://Collectable.gd" id="2_lfn51"]
+
+[node name="Collectable" instance=ExtResource("1_u6jah")]
+script = ExtResource("2_lfn51")
+collect_name = "Coin"

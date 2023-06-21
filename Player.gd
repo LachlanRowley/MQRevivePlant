@@ -4,6 +4,10 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+
+var is_dead := false
+
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -27,6 +31,9 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+<<<<<<< HEAD
 
 func _on_area_2d_body_entered(body):
 	move_and_slide()	
+=======
+>>>>>>> 92cb779e5f2390063399ce613aa64ec8b17f0c3b

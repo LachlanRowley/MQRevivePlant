@@ -15,6 +15,10 @@ run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Inventory="*res://Inventory.gd"
+
 [display]
 
 window/size/viewport_width=512
@@ -22,3 +26,14 @@ window/size/viewport_height=288
 window/size/window_width_override=1024
 window/size/window_height_override=576
 window/stretch/mode="canvas_items"
+
+[layer_names]
+
+2d_physics/layer_1="Ground"
+2d_physics/layer_2="Player Layer"
+2d_physics/layer_3="Collision Layer"
+2d_physics/layer_4="Player Interactable Layer"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
