@@ -59,3 +59,4 @@ func resurrect():
 	is_dead = false
 	set_collision_mask_value(1,1)
 	$PlayerSprite.texture = aliveSprite
+
