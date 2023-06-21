@@ -31,9 +31,5 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-<<<<<<< HEAD
-
-func _on_area_2d_body_entered(body):
-	move_and_slide()	
-=======
->>>>>>> 92cb779e5f2390063399ce613aa64ec8b17f0c3b
+func doThing():
+	print("Die")

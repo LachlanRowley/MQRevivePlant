@@ -36,7 +36,9 @@ func _physics_process(delta):
 			direction = 1
 		if !$Right.is_colliding() and $Left.is_colliding():
 			direction = -1
+			
 		$Vision.scale.x = direction
+		$Sprite2D.scale.x = direction
 		
 		velocity.x = direction * SPEED
 
@@ -50,3 +52,4 @@ func shoot():
 func _on_shoot_timer_timeout():
 	if $Vision.is_colliding:
 		$Vision.get_collider().doThing()
+
