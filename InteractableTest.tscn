@@ -1,15 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7trdfg7flyo4"]
+[gd_scene load_steps=7 format=3 uid="uid://c7trdfg7flyo4"]
 
 [ext_resource type="PackedScene" uid="uid://divrbvfxem16n" path="res://Scenes/player.tscn" id="1_w56wh"]
 [ext_resource type="PackedScene" uid="uid://k2m03fhtuttc" path="res://tile_map.tscn" id="2_e7tvv"]
 [ext_resource type="PackedScene" uid="uid://cv1f1mo35so4" path="res://Scenes/Interactable.tscn" id="3_2u128"]
 [ext_resource type="PackedScene" uid="uid://dta82gpolfild" path="res://Scenes/Collectable.tscn" id="4_33g85"]
 [ext_resource type="PackedScene" uid="uid://dga5esxsgnrym" path="res://Scenes/Button.tscn" id="5_w6i05"]
+[ext_resource type="PackedScene" uid="uid://df6647le2xbyk" path="res://Scenes/Enemy.tscn" id="6_63hd0"]
 
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_w56wh")]
-position = Vector2(181, 67)
+position = Vector2(415, 146)
 
 [node name="TileMap" parent="." instance=ExtResource("2_e7tvv")]
 position = Vector2(1, 65)
@@ -26,3 +27,6 @@ position = Vector2(392, 177)
 [node name="Button" parent="." node_paths=PackedStringArray("objectToInteractWith") instance=ExtResource("5_w6i05")]
 position = Vector2(217, 171)
 objectToInteractWith = NodePath("../Interactable3")
+
+[node name="Enemy" parent="." instance=ExtResource("6_63hd0")]
+position = Vector2(107, 141)

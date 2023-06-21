@@ -5,4 +5,5 @@ var objectToInteractWith : Interactable
 
 func interactionEvent():
 	if objectToInteractWith != null:
-		objectToInteractWith.interactionEvent()
+		if objectToInteractWith.has_method("interactionEvent"):
+			objectToInteractWith.interactionEvent()

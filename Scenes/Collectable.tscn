@@ -5,3 +5,4 @@
 
 [node name="Collectable" instance=ExtResource("1_u6jah")]
 script = ExtResource("2_lfn51")
+collect_name = "Coin"
