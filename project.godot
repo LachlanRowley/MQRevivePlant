@@ -13,3 +13,11 @@ config_version=5
 config/name="Plant GAME"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=512
+window/size/viewport_height=288
+window/size/window_width_override=1024
+window/size/window_height_override=576
+window/stretch/mode="canvas_items"
