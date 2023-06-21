@@ -12,14 +12,22 @@ var is_dead := false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
-func _physics_process(delta):
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y += gravity * delta
+@export
+var aliveSprite : Resource
+@export
+var deadSprite : Resource
 
-	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+func _physics_process(delta):
+	if !is_dead:
+		##Apply gravity
+		if not is_on_floor():
+			velocity.y += gravity * delta
+		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+			velocity.y = JUMP_VELOCITY
+
+	if is_dead:
+		var vert_direction = Input.get_axis("ui_up","ui_down")
+		velocity.y = vert_direction * SPEED
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -31,5 +39,23 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-func doThing():
-	print("Die")
+
+func _input(event):
+	if event.is_action_pressed("DIE"):
+		if is_dead:
+			resurrect()
+		else:
+			die()
+
+func killed():
+	die()
+
+func die():
+	is_dead = true
+	set_collision_mask_value(1,0)
+	$PlayerSprite.texture = deadSprite
+	
+func resurrect():
+	is_dead = false
+	set_collision_mask_value(1,1)
+	$PlayerSprite.texture = aliveSprite

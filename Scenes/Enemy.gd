@@ -51,5 +51,6 @@ func shoot():
 
 func _on_shoot_timer_timeout():
 	if $Vision.is_colliding:
-		$Vision.get_collider().doThing()
+		if $Vision.get_collider() != null:
+			$Vision.get_collider().killed()
 
