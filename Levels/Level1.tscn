@@ -1,25 +1,26 @@
-[gd_scene load_steps=9 format=3 uid="uid://dvah4ak8bmft2"]
+[gd_scene load_steps=9 format=3 uid="uid://chx4enjnlf8sv"]
 
 [ext_resource type="Script" path="res://Levels/Level1.gd" id="1_6ndfq"]
 [ext_resource type="PackedScene" uid="uid://bdw1riiifdc1y" path="res://node_2d.tscn" id="1_n66kx"]
 [ext_resource type="PackedScene" uid="uid://k2m03fhtuttc" path="res://tile_map.tscn" id="2_xue3c"]
 [ext_resource type="PackedScene" uid="uid://cy4i2o4rj885p" path="res://wall.tscn" id="3_44hs4"]
 [ext_resource type="PackedScene" uid="uid://divrbvfxem16n" path="res://Scenes/player.tscn" id="4_r5v7g"]
-[ext_resource type="PackedScene" uid="uid://bpgsouywguy3m" path="res://Scenes/Pressable.tscn" id="5_apetu"]
-[ext_resource type="PackedScene" path="res://torch.tscn" id="8_46g66"]
-[ext_resource type="PackedScene" path="res://teleporter.tscn" id="8_d2csi"]
+[ext_resource type="PackedScene" uid="uid://dxurphbvmb8l3" path="res://Scenes/Pressable.tscn" id="5_apetu"]
+[ext_resource type="PackedScene" uid="uid://b355jrrntbbtk" path="res://torch.tscn" id="8_46g66"]
+[ext_resource type="PackedScene" uid="uid://ccaulpda050cm" path="res://teleporter.tscn" id="8_d2csi"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_6ndfq")
 
 [node name="env" parent="." instance=ExtResource("1_n66kx")]
+position = Vector2(-3, 33)
 
 [node name="TileMap" parent="." instance=ExtResource("2_xue3c")]
 position = Vector2(0, 65)
-layer_0/tile_data = PackedInt32Array(589824, 2, 0, 589836, 2, 0, 589835, 2, 0, 589834, 2, 0, 589833, 2, 0, 589832, 2, 0, 589831, 2, 0, 589830, 2, 0, 589829, 2, 0, 589828, 2, 0, 589827, 2, 0, 589826, 2, 0, 589825, 2, 0, 589837, 2, 0, 589838, 2, 0, 589839, 2, 0, 589840, 2, 0, 589841, 2, 0, 589842, 2, 0, 589843, 2, 0, 589844, 2, 0, 589845, 2, 0, 589846, 2, 0, 589847, 2, 0, 589848, 2, 0, 589849, 2, 0, 589850, 2, 0, 589851, 2, 0, 589852, 2, 0, 589853, 2, 0)
+layer_0/tile_data = PackedInt32Array(589824, 2, 0, 589836, 2, 0, 589835, 2, 0, 589834, 2, 0, 589833, 2, 0, 589832, 2, 0, 589831, 2, 0, 589830, 2, 0, 589829, 2, 0, 589828, 2, 0, 589827, 2, 0, 589826, 2, 0, 589825, 2, 0, 589837, 2, 0, 589838, 2, 0, 589839, 2, 0, 589840, 2, 0, 589841, 2, 0, 589842, 2, 0, 589843, 2, 0, 589844, 2, 0, 589845, 2, 0, 589846, 2, 0, 589847, 2, 0, 589848, 2, 0, 589849, 2, 0, 589850, 2, 0, 589851, 2, 0, 589852, 2, 0, 589853, 2, 0, 589854, 2, 0)
 
 [node name="wall" parent="." instance=ExtResource("3_44hs4")]
-position = Vector2(217, -43)
+position = Vector2(218, -44)
 
 [node name="Player" parent="." instance=ExtResource("4_r5v7g")]
 position = Vector2(13, 24)
@@ -37,15 +38,22 @@ target_position = Vector2(-19, 0)
 position = Vector2(322, 193)
 
 [node name="AnimatedSprite2D" parent="." instance=ExtResource("8_46g66")]
-position = Vector2(97, 125)
+position = Vector2(94, 153)
 
 [node name="StaticBody2D" parent="AnimatedSprite2D" index="0"]
 collision_layer = 1
 collision_mask = 0
 
 [node name="teleporter" parent="." instance=ExtResource("8_d2csi")]
-position = Vector2(448, 145)
-scale = Vector2(0.661392, 0.778481)
+position = Vector2(471.594, 161.063)
+scale = Vector2(0.384889, 0.556171)
+
+[node name="CollisionPolygon2D" parent="teleporter/tpArea" index="0"]
+position = Vector2(-172.183, 149.153)
+scale = Vector2(1.47743, 1.07555)
+
+[node name="AudioStreamPlayer2D" parent="teleporter" index="1"]
+autoplay = false
 
 [connection signal="body_entered" from="Pressable/Sprite2D/Interaction Zone" to="Pressable" method="_on_interaction_zone_body_entered"]
 [connection signal="body_exited" from="Pressable/Sprite2D/Interaction Zone" to="Pressable" method="_on_interaction_zone_body_exited"]

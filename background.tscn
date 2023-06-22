@@ -1,20 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpgiin74rc2yp"]
+[gd_scene load_steps=2 format=3 uid="uid://caxwq63cujxa7"]
 
 [ext_resource type="Texture2D" uid="uid://dbo1csoik01w7" path="res://Screenshot 2023-06-21 131854.png" id="1_1myc2"]
 
 [node name="Background" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(80.5, 68.75)
-scale = Vector2(0.47076, 0.393175)
+position = Vector2(63, 53)
+scale = Vector2(0.365497, 0.31454)
 texture = ExtResource("1_1myc2")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(237, 69)
-scale = Vector2(0.47076, 0.393175)
+position = Vector2(187.5, 53)
+scale = Vector2(0.365497, 0.315282)
 texture = ExtResource("1_1myc2")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(396, 69)
-scale = Vector2(0.47076, 0.393175)
+position = Vector2(311.688, 53)
+scale = Vector2(0.360746, 0.317878)
+texture = ExtResource("1_1myc2")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(435, 53)
+scale = Vector2(0.360746, 0.317878)
 texture = ExtResource("1_1myc2")
