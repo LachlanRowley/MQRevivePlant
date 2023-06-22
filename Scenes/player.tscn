@@ -1,28 +1,24 @@
 [gd_scene load_steps=5 format=3 uid="uid://divrbvfxem16n"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_4le2j"]
-[ext_resource type="Texture2D" uid="uid://b1rwrs338r8k8" path="res://PlayerAlive.png" id="2_mhm8x"]
-[ext_resource type="Texture2D" uid="uid://k7t758hobg4m" path="res://PlayerDead.png" id="3_24g2j"]
+[ext_resource type="Texture2D" uid="uid://b1rwrs338r8k8" path="res://PlayerAlive.png" id="2_bubfo"]
+[ext_resource type="Texture2D" uid="uid://k7t758hobg4m" path="res://PlayerDead.png" id="3_3arbi"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x3byf"]
 
 [node name="Player" type="CharacterBody2D"]
-collision_layer = 22
-collision_mask = 9
+collision_layer = 7
+collision_mask = 25
 script = ExtResource("1_4le2j")
-aliveSprite = ExtResource("2_mhm8x")
-deadSprite = ExtResource("3_24g2j")
+aliveSprite = ExtResource("2_bubfo")
+deadSprite = ExtResource("3_3arbi")
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, -14)
 shape = SubResource("CapsuleShape2D_x3byf")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
-position = Vector2(0, -8)
-texture = ExtResource("2_mhm8x")
+position = Vector2(0, -13.5)
+texture = ExtResource("2_bubfo")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="ShootRange" type="RayCast2D" parent="."]
-position = Vector2(1, -10)
-target_position = Vector2(112, 0)
