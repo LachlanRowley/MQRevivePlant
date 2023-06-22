@@ -7,3 +7,4 @@ func interactionEvent():
 	if objectToInteractWith != null:
 		if objectToInteractWith.has_method("interactionEvent"):
 			objectToInteractWith.interactionEvent()
+

@@ -1,0 +1,63 @@
+[gd_scene load_steps=11 format=3 uid="uid://b7x2o8s2kaift"]
+
+[ext_resource type="Script" path="res://Levels/level2.gd" id="1_lj3e7"]
+[ext_resource type="Texture2D" uid="uid://bkc5f241asbfs" path="res://BlackSquare.png" id="1_sa47i"]
+[ext_resource type="PackedScene" uid="uid://divrbvfxem16n" path="res://Scenes/player.tscn" id="5_los0y"]
+[ext_resource type="PackedScene" uid="uid://k2m03fhtuttc" path="res://tile_map.tscn" id="6_w53o0"]
+[ext_resource type="Texture2D" uid="uid://c5bse313ixe3r" path="res://Interactable.png" id="8_o55bh"]
+[ext_resource type="PackedScene" uid="uid://blxek5wxyd1yv" path="res://Scenes/Enemy.tscn" id="8_p3gd6"]
+[ext_resource type="Script" path="res://Collectable.gd" id="9_u81fa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xg8ew"]
+size = Vector2(27, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2k7dk"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bop8t"]
+size = Vector2(16, 16)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_lj3e7")
+
+[node name="Enemy" parent="." instance=ExtResource("8_p3gd6")]
+position = Vector2(249, 243)
+scale = Vector2(-1, 1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemy"]
+position = Vector2(-3.5, -50)
+shape = SubResource("RectangleShape2D_xg8ew")
+
+[node name="TileMap" parent="." instance=ExtResource("6_w53o0")]
+layer_0/tile_data = PackedInt32Array(1048576, 2, 0, 1048577, 2, 0, 1048578, 2, 0, 1048579, 2, 0, 1048580, 2, 0, 1048581, 2, 0, 1048582, 2, 0, 1048583, 2, 0, 1048584, 2, 0, 1048585, 2, 0, 1048586, 2, 0, 1048587, 2, 0, 1048588, 2, 0, 1048589, 2, 0, 1048590, 2, 0, 1114127, 2, 0, 1114128, 2, 0, 1114129, 2, 0, 1048593, 2, 0, 1048592, 2, 0, 1048591, 2, 0, 1114112, 2, 0, 1114113, 2, 0, 1114114, 2, 0, 1114115, 2, 0, 1114116, 2, 0, 1114117, 2, 0, 1114118, 2, 0, 1114119, 2, 0, 1114120, 2, 0, 1114121, 2, 0, 1114122, 2, 0, 1114123, 2, 0, 1114124, 2, 0, 1114125, 2, 0, 1114126, 2, 0, 1048594, 2, 0, 1114130, 2, 0, 1048595, 2, 0, 1114131, 2, 0)
+
+[node name="TileMap2" parent="." instance=ExtResource("6_w53o0")]
+position = Vector2(161, -76)
+layer_0/tile_data = PackedInt32Array(589826, 2, 0, 589827, 2, 0, 589828, 2, 0, 589829, 2, 0, 589830, 2, 0, 589831, 2, 0, 589825, 2, 0, 655361, 2, 0, 655362, 2, 0, 655363, 2, 0, 655364, 2, 0, 655365, 2, 0, 655366, 2, 0, 655367, 2, 0)
+
+[node name="Gun" type="Sprite2D" parent="."]
+position = Vector2(253, 41)
+texture = ExtResource("8_o55bh")
+script = ExtResource("9_u81fa")
+
+[node name="Area2D" type="Area2D" parent="Gun"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gun/Area2D"]
+shape = SubResource("RectangleShape2D_2k7dk")
+
+[node name="Resurrect" type="Sprite2D" parent="."]
+position = Vector2(216, 41)
+texture = ExtResource("1_sa47i")
+
+[node name="Area2D" type="Area2D" parent="Resurrect"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Resurrect/Area2D"]
+shape = SubResource("RectangleShape2D_bop8t")
+
+[node name="Player" parent="." instance=ExtResource("5_los0y")]
+position = Vector2(59, 255)
+
+[connection signal="body_entered" from="Gun/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Resurrect/Area2D" to="." method="_on_resurrector_body_entered"]

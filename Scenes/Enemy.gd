@@ -40,7 +40,7 @@ func _physics_process(delta):
 		$Vision.scale.x = direction
 		$Sprite2D.scale.x = direction
 		
-		velocity.x = direction * SPEED
+#		velocity.x = direction * SPEED
 
 	move_and_slide()
 
