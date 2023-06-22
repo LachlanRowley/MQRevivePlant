@@ -27,8 +27,6 @@ func _on_acid_area_body_entered(body):
 	player.die()
 	player.position.y -= 10
 	$RespawnTimer.start()
-	if body.is_class(CharacterBody2D):
-		pass
 
 
 

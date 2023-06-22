@@ -1,11 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://b7x2o8s2kaift"]
+[gd_scene load_steps=11 format=3 uid="uid://7ctelt4hvabt"]
 
 [ext_resource type="Script" path="res://Levels/level2.gd" id="1_lj3e7"]
 [ext_resource type="Texture2D" uid="uid://bkc5f241asbfs" path="res://BlackSquare.png" id="1_sa47i"]
 [ext_resource type="PackedScene" uid="uid://divrbvfxem16n" path="res://Scenes/player.tscn" id="5_los0y"]
 [ext_resource type="PackedScene" uid="uid://k2m03fhtuttc" path="res://tile_map.tscn" id="6_w53o0"]
 [ext_resource type="Texture2D" uid="uid://c5bse313ixe3r" path="res://Interactable.png" id="8_o55bh"]
-[ext_resource type="PackedScene" uid="uid://blxek5wxyd1yv" path="res://Scenes/Enemy.tscn" id="8_p3gd6"]
+[ext_resource type="PackedScene" uid="uid://df6647le2xbyk" path="res://Scenes/Enemy.tscn" id="8_p3gd6"]
 [ext_resource type="Script" path="res://Collectable.gd" id="9_u81fa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xg8ew"]
