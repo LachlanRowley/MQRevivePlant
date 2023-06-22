@@ -1,0 +1,91 @@
+[gd_scene load_steps=12 format=3 uid="uid://ccaulpda050cm"]
+
+[ext_resource type="Texture2D" uid="uid://dheoa0wjbqcvu" path="res://tpspritesheet-removebg-preview.png" id="1_lvxd8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0r2r3"]
+atlas = ExtResource("1_lvxd8")
+region = Rect2(0, 0, 158, 158)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ulfy"]
+atlas = ExtResource("1_lvxd8")
+region = Rect2(158, 0, 158, 158)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_814bl"]
+atlas = ExtResource("1_lvxd8")
+region = Rect2(316, 0, 158, 158)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vt0qg"]
+atlas = ExtResource("1_lvxd8")
+region = Rect2(474, 0, 158, 158)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfw6h"]
+atlas = ExtResource("1_lvxd8")
+region = Rect2(632, 0, 158, 158)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjmkf"]
+atlas = ExtResource("1_lvxd8")
+region = Rect2(474, 158, 158, 158)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63sre"]
+atlas = ExtResource("1_lvxd8")
+region = Rect2(316, 158, 158, 158)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xagwl"]
+atlas = ExtResource("1_lvxd8")
+region = Rect2(158, 158, 158, 158)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4le52"]
+atlas = ExtResource("1_lvxd8")
+region = Rect2(0, 158, 158, 158)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4fsis"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0r2r3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ulfy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_814bl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vt0qg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfw6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjmkf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63sre")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xagwl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4le52")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="teleporter" type="AnimatedSprite2D"]
+position = Vector2(-46.5, -28.5)
+scale = Vector2(0.411392, 0.639241)
+sprite_frames = SubResource("SpriteFrames_4fsis")
+autoplay = "default"
+
+[node name="tpArea" type="Area2D" parent="."]
+position = Vector2(119.5, -122.781)
+scale = Vector2(0.727848, 0.870647)
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="tpArea"]
+position = Vector2(-168.466, 147.404)
+scale = Vector2(1.53512, 1.08841)
+polygon = PackedVector2Array(-0.686951, -90.9885, 39.1565, -34.7085, 32.287, 47.9886, 0.686966, 83.5943, -0.686951, 83.5943, -33.6609, 50.2857, -40.5304, -35.8571, -40.5304, -34.7085)

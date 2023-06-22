@@ -60,10 +60,17 @@ func die():
 	set_collision_mask_value(1,0)
 	$PlayerSprite.play("Player_Ghost")
 	emit_signal("died")
+
+	set_collision_layer_value(5,0)
+
 	
 func resurrect():
 	is_dead = false
 	set_collision_mask_value(1,1)
+
 	$PlayerSprite.play("Player_Alive")
 	emit_signal("respawned")
+
+	set_collision_layer_value(5,1)
+
 
