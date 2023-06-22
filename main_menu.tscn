@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://80slot8gyjbq"]
+
+[ext_resource type="Shader" path="res://Scenes/ghost_shader.gdshader" id="1_daywv"]
+[ext_resource type="Texture2D" uid="uid://cr63onvvnb5j7" path="res://Ghost.png" id="2_h4goa"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lhf1t"]
+shader = ExtResource("1_daywv")
+
+[node name="Main_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ghost" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_lhf1t")
+layout_mode = 0
+offset_left = 6.0
+offset_top = 22.0
+offset_right = 495.0
+offset_bottom = 279.0
+texture = ExtResource("2_h4goa")
+stretch_mode = 1
+
+[node name="RichTextLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_right = 107.0
+offset_bottom = -125.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GHOST GAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 165.0
+offset_right = 313.0
+offset_bottom = 202.0
+text = "PLAY"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 215.0
+offset_right = 313.0
+offset_bottom = 252.0
+text = "EXIT"

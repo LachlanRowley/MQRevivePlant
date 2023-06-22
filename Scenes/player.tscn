@@ -68,8 +68,7 @@ shape = SubResource("CapsuleShape2D_x3byf")
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_b75bf")
-animation = &"Player_Alive"
-frame_progress = 0.536225
+animation = &"Player_Ghost"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 material = SubResource("ShaderMaterial_frkja")
