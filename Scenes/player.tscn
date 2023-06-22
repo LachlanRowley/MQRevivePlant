@@ -1,24 +1,89 @@
-[gd_scene load_steps=5 format=3 uid="uid://divrbvfxem16n"]
+[gd_scene load_steps=13 format=3 uid="uid://divrbvfxem16n"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_4le2j"]
+<<<<<<< HEAD
+[ext_resource type="Texture2D" uid="uid://b4ro7r1sackl7" path="res://PlayerSprite.png" id="2_a8jln"]
+[ext_resource type="Texture2D" uid="uid://b1rwrs338r8k8" path="res://PlayerAlive.png" id="2_mhm8x"]
+[ext_resource type="Texture2D" uid="uid://cr63onvvnb5j7" path="res://Ghost.png" id="3_xcno6"]
+[ext_resource type="Shader" path="res://Scenes/ghost_shader.gdshader" id="5_mkk6r"]
+=======
 [ext_resource type="Texture2D" uid="uid://b1rwrs338r8k8" path="res://PlayerAlive.png" id="2_bubfo"]
 [ext_resource type="Texture2D" uid="uid://k7t758hobg4m" path="res://PlayerDead.png" id="3_3arbi"]
+>>>>>>> a9fc313f036c86ee1533d5dbd0a6a332da29bce3
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x3byf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8xqv"]
+atlas = ExtResource("2_mhm8x")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mm3rd"]
+atlas = ExtResource("2_mhm8x")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3a2ik"]
+atlas = ExtResource("3_xcno6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jt6l"]
+atlas = ExtResource("3_xcno6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b75bf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8xqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mm3rd")
+}],
+"loop": true,
+"name": &"Player_Alive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3a2ik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jt6l")
+}],
+"loop": true,
+"name": &"Player_Ghost",
+"speed": 1.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_frkja"]
+shader = ExtResource("5_mkk6r")
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 7
 collision_mask = 25
 script = ExtResource("1_4le2j")
+<<<<<<< HEAD
+aliveSprite = ExtResource("2_a8jln")
+deadSprite = ExtResource("3_xcno6")
+=======
 aliveSprite = ExtResource("2_bubfo")
 deadSprite = ExtResource("3_3arbi")
+>>>>>>> a9fc313f036c86ee1533d5dbd0a6a332da29bce3
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, -14)
 shape = SubResource("CapsuleShape2D_x3byf")
 
+<<<<<<< HEAD
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_b75bf")
+animation = &"Player_Alive"
+frame_progress = 0.536225
+=======
 [node name="PlayerSprite" type="Sprite2D" parent="."]
 position = Vector2(0, -13.5)
 texture = ExtResource("2_bubfo")
+>>>>>>> a9fc313f036c86ee1533d5dbd0a6a332da29bce3
 
 [node name="Camera2D" type="Camera2D" parent="."]
+material = SubResource("ShaderMaterial_frkja")
