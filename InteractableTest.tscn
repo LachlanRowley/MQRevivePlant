@@ -24,9 +24,8 @@ position = Vector2(344, 171)
 [node name="Interactable3" parent="." instance=ExtResource("4_33g85")]
 position = Vector2(392, 177)
 
-[node name="Button" parent="." node_paths=PackedStringArray("objectToInteractWith") instance=ExtResource("5_w6i05")]
+[node name="Button" parent="." instance=ExtResource("5_w6i05")]
 position = Vector2(217, 171)
-objectToInteractWith = NodePath("../Interactable3")
 
 [node name="Enemy" parent="." instance=ExtResource("6_63hd0")]
 position = Vector2(107, 141)
