@@ -2,11 +2,13 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -300.0
 
 
 var is_dead := false
 
+signal died
+signal respawned
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -16,6 +18,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var aliveSprite : Resource
 @export
 var deadSprite : Resource
+
+@onready
+var ghost_shader = preload("res://Scenes/ghost_shader.gdshader")
 
 func _physics_process(delta):
 	if !is_dead:
@@ -53,10 +58,12 @@ func killed():
 func die():
 	is_dead = true
 	set_collision_mask_value(1,0)
-	$PlayerSprite.texture = deadSprite
+	$PlayerSprite.play("Player_Ghost")
+	emit_signal("died")
 	
 func resurrect():
 	is_dead = false
 	set_collision_mask_value(1,1)
-	$PlayerSprite.texture = aliveSprite
+	$PlayerSprite.play("Player_Alive")
+	emit_signal("respawned")
 
