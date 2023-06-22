@@ -53,10 +53,12 @@ func killed():
 func die():
 	is_dead = true
 	set_collision_mask_value(1,0)
+	set_collision_layer_value(5,0)
 	$PlayerSprite.texture = deadSprite
 	
 func resurrect():
 	is_dead = false
 	set_collision_mask_value(1,1)
+	set_collision_layer_value(5,1)
 	$PlayerSprite.texture = aliveSprite
 
