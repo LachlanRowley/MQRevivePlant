@@ -1,39 +1,36 @@
-[gd_scene load_steps=13 format=3 uid="uid://divrbvfxem16n"]
+[gd_scene load_steps=11 format=3 uid="uid://divrbvfxem16n"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_4le2j"]
-[ext_resource type="Texture2D" uid="uid://b4ro7r1sackl7" path="res://PlayerSprite.png" id="2_a8jln"]
 [ext_resource type="Texture2D" uid="uid://b1rwrs338r8k8" path="res://PlayerAlive.png" id="2_mhm8x"]
-[ext_resource type="Texture2D" uid="uid://cr63onvvnb5j7" path="res://Ghost.png" id="3_xcno6"]
-[ext_resource type="Shader" path="res://Scenes/ghost_shader.gdshader" id="5_mkk6r"]
+[ext_resource type="Texture2D" uid="uid://k7t758hobg4m" path="res://PlayerDead.png" id="3_24g2j"]
+[ext_resource type="Texture2D" uid="uid://cr63onvvnb5j7" path="res://Ghost.png" id="4_lvrvm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x3byf"]
-radius = 9.0
-height = 20.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e8xqv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_knogf"]
 atlas = ExtResource("2_mhm8x")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mm3rd"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qslk"]
 atlas = ExtResource("2_mhm8x")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3a2ik"]
-atlas = ExtResource("3_xcno6")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7jt6l"]
-atlas = ExtResource("3_xcno6")
+[sub_resource type="AtlasTexture" id="AtlasTexture_b057k"]
+atlas = ExtResource("4_lvrvm")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_b75bf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_51kus"]
+atlas = ExtResource("4_lvrvm")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t5xcn"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e8xqv")
+"texture": SubResource("AtlasTexture_knogf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mm3rd")
+"texture": SubResource("AtlasTexture_8qslk")
 }],
 "loop": true,
 "name": &"Player_Alive",
@@ -41,37 +38,38 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3a2ik")
+"texture": SubResource("AtlasTexture_b057k")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7jt6l")
+"texture": SubResource("AtlasTexture_51kus")
 }],
 "loop": true,
 "name": &"Player_Ghost",
 "speed": 1.0
 }]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_frkja"]
-shader = ExtResource("5_mkk6r")
-
 [node name="Player" type="CharacterBody2D"]
-collision_layer = 6
+collision_layer = 22
 collision_mask = 9
 script = ExtResource("1_4le2j")
-aliveSprite = ExtResource("2_a8jln")
-deadSprite = ExtResource("3_xcno6")
+aliveSprite = ExtResource("2_mhm8x")
+deadSprite = ExtResource("3_24g2j")
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, -10)
+position = Vector2(0, -14)
 shape = SubResource("CapsuleShape2D_x3byf")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
+
 sprite_frames = SubResource("SpriteFrames_b75bf")
 animation = &"Player_Ghost"
 
+sprite_frames = SubResource("SpriteFrames_t5xcn")
+animation = &"Player_Alive"
+
 [node name="Camera2D" type="Camera2D" parent="."]
-material = SubResource("ShaderMaterial_frkja")
 
 [node name="ShootRange" type="RayCast2D" parent="."]
-target_position = Vector2(51, 0)
+position = Vector2(1, -10)
+target_position = Vector2(112, 0)

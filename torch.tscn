@@ -60,8 +60,8 @@ animations = [{
 }]
 
 [node name="torch" type="AnimatedSprite2D"]
-position = Vector2(190, 43)
-scale = Vector2(0.1925, 0.204687)
+position = Vector2(178.1, 31.625)
+scale = Vector2(0.118125, 0.133593)
 sprite_frames = SubResource("SpriteFrames_n8fuw")
 autoplay = "default"
 frame_progress = 0.473782

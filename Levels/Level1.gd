@@ -21,6 +21,7 @@ func _on_area_2d_body_entered(body):
 
 func _on_tp_area_body_entered(body):
 	player.queue_free()
+	$teleporter/AudioStreamPlayer2D.play("res://teleport.mp3")
 
 
 func _input(event):
